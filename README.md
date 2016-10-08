@@ -8,6 +8,13 @@ tastr is the ultimate tool to help you taste and rate any wine you drink
 - [virtualbox](https://www.virtualbox.org/)
 - [docker](https://www.docker.com/)
 
+# technologies
+## Ops
+- [postgres db](https://www.postgresql.org/)
+
+## Backend
+- [spring data](http://projects.spring.io/spring-data/)
+
 # local postgres db
 1. `ops/scripts/create-docker-vm.bat`
     - creates linux vm for docker with port forwarding of postgres port `5432`
@@ -19,4 +26,5 @@ tastr is the ultimate tool to help you taste and rate any wine you drink
 0. install all prerequisites and `ops/scripts/create-docker-vm.bat`
 1. `git clone https://github.com/vanpeerdevelopment/tastr.git`
 2. `ops/scripts/start-developing.bat`
-3. `mvn clean install`
+3. `mvn initialize -PdbInit -pl tastr-infrastructure`
+4. `mvn clean install`
