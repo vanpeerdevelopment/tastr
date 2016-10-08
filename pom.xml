@@ -19,6 +19,7 @@
         <module>tastr-domain</module>
         <module>tastr-service</module>
         <module>tastr-api</module>
+        <module>tastr-fatjar</module>
     </modules>
 
     <properties>
@@ -123,6 +124,18 @@
             <dependency>
                 <groupId>eu.tastr</groupId>
                 <artifactId>tastr-api</artifactId>
+                <type>test-jar</type>
+                <version>${project.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>eu.tastr</groupId>
+                <artifactId>tastr-fatjar</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>eu.tastr</groupId>
+                <artifactId>tastr-fatjar</artifactId>
                 <type>test-jar</type>
                 <version>${project.version}</version>
                 <scope>test</scope>

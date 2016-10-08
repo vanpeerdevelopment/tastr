@@ -15,6 +15,7 @@ tastr is the ultimate tool to help you taste and rate any wine you drink
 - [flyway](https://flywaydb.org/)
 - [spring boot](http://projects.spring.io/spring-boot/)
 - [spring data](http://projects.spring.io/spring-data/)
+- [spring mvc](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html)
 
 # local postgres db
 1. `ops/scripts/create-docker-vm.bat`

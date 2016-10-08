@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>eu.tastr</groupId>
+        <artifactId>tastr</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>tastr-fatjar</artifactId>
+
+    <dependencies>
+        <!-- tastr -->
+        <dependency>
+            <groupId>eu.tastr</groupId>
+            <artifactId>tastr-infrastructure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>eu.tastr</groupId>
+            <artifactId>tastr-domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>eu.tastr</groupId>
+            <artifactId>tastr-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>eu.tastr</groupId>
+            <artifactId>tastr-api</artifactId>
+        </dependency>
+
+        <!-- spring -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <configuration>
+                    <dotGitDirectory>${basedir}/../../.git</dotGitDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
