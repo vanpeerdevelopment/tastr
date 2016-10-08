@@ -1,7 +1,7 @@
 package be.vdab.vrijstellingenbeleid.infrastructure.test;
 
 import be.vdab.vrijstellingenbeleid.infrastructure.ddd.Id;
-import be.vdab.vrijstellingenbeleid.infrastructure.exception.VrijstellingenbeleidEntityBestaatNietException;
+import be.vdab.vrijstellingenbeleid.infrastructure.exception.TastrEntityBestaatNietException;
 import be.vdab.vrijstellingenbeleid.infrastructure.test.matcher.ConstraintViolationExceptionMatcher;
 import org.hamcrest.Matcher;
 import org.junit.Rule;
@@ -44,7 +44,7 @@ public abstract class RollingBackIntegrationTest extends AbstractTransactionalJU
 
     protected void expectTastrEntityBestaatNietExceptionWithMessage(Id id) {
         expectExceptionWithMessage(
-            VrijstellingenbeleidEntityBestaatNietException.class,
+            TastrEntityBestaatNietException.class,
             String.format(
                 "Het opgezochte element (met %s %s) bestaat niet (meer).",
                 id.getClass().getSimpleName(),

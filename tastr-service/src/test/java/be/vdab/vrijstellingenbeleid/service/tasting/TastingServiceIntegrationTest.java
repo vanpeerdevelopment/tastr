@@ -1,16 +1,19 @@
 package be.vdab.vrijstellingenbeleid.service.tasting;
 
+import be.vdab.vrijstellingenbeleid.domain.TastrAssertions;
 import be.vdab.vrijstellingenbeleid.domain.tasting.Tasting;
 import be.vdab.vrijstellingenbeleid.domain.tasting.TastingId;
+import be.vdab.vrijstellingenbeleid.domain.tasting.command.VoegTastingToeCommand;
 import be.vdab.vrijstellingenbeleid.service.ServiceIntegrationTest;
 import org.junit.Test;
 
 import javax.inject.Inject;
 import java.util.List;
 
+import static be.vdab.vrijstellingenbeleid.domain.TastrAssertions.assertThat;
 import static be.vdab.vrijstellingenbeleid.domain.tasting.TastingId.tastingId;
 import static be.vdab.vrijstellingenbeleid.domain.tasting.TastingTestBuilder.eenTasting;
-import static org.assertj.core.api.Assertions.assertThat;
+import static be.vdab.vrijstellingenbeleid.domain.tasting.command.VoegTastingToeCommandTestBuilder.eenVoegTastingToeCommand;
 
 public class TastingServiceIntegrationTest extends ServiceIntegrationTest {
 
@@ -54,11 +57,14 @@ public class TastingServiceIntegrationTest extends ServiceIntegrationTest {
 
     @Test
     public void create_GivenTasting_ThenTastingCreated() {
-        Tasting tasting = eenTasting().withId(tastingId()).build();
+        VoegTastingToeCommand command = eenVoegTastingToeCommand().withNaam("Tasting naam").build();
 
-        Tasting tastingUitDb = service.create(tasting);
+        Tasting tastingUitDb = service.create(command);
 
         assertThat(tastingUitDb).isNotNull();
-        assertThat(service.findById(tasting.getId())).isNotNull();
+        assertThat(service.findById(command.getAggregateId()))
+            .isNotNull()
+            .heeftId(command.getAggregateId())
+            .heeftNaam(command.getNaam());
     }
 }

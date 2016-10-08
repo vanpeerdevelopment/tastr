@@ -1,6 +1,5 @@
 package be.vdab.vrijstellingenbeleid.infrastructure.ddd;
 
-import be.vdab.vrijstellingenbeleid.infrastructure.exception.VrijstellingenbeleidEntityBestaatNietException;
 import be.vdab.vrijstellingenbeleid.infrastructure.messaging.EventBus;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,7 +10,7 @@ import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.util.List;
 
-import static be.vdab.vrijstellingenbeleid.infrastructure.exception.VrijstellingenbeleidEntityBestaatNietException.vrijstellingenbeleidEntityBestaatNietException;
+import static be.vdab.vrijstellingenbeleid.infrastructure.exception.TastrEntityBestaatNietException.vrijstellingenbeleidEntityBestaatNietException;
 import static javax.persistence.LockModeType.WRITE;
 
 public class RepositoryImpl<T extends AggregateRoot<ID>, ID extends Id> extends SimpleJpaRepository<T, ID> implements Repository<T, ID> {

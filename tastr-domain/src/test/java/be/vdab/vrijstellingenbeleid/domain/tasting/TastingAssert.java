@@ -7,11 +7,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class TastingAssert extends AbstractAssert<TastingAssert, Tasting> {
 
-    public TastingAssert(Tasting tasting) {
-        super(tasting, TastingAssert.class);
+    public TastingAssert(Tasting actual) {
+        super(actual, TastingAssert.class);
     }
 
-    public TastingAssert heeftGegenereerdId() {
+    public TastingAssert heeftGegenereerdeId() {
         assertThat(actual.getId()).isNotNull();
         return this;
     }

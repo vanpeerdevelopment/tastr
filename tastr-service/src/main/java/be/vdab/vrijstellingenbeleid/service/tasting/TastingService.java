@@ -3,6 +3,7 @@ package be.vdab.vrijstellingenbeleid.service.tasting;
 import be.vdab.vrijstellingenbeleid.domain.tasting.Tasting;
 import be.vdab.vrijstellingenbeleid.domain.tasting.TastingId;
 import be.vdab.vrijstellingenbeleid.domain.tasting.TastingRepository;
+import be.vdab.vrijstellingenbeleid.domain.tasting.command.VoegTastingToeCommand;
 import com.codahale.metrics.annotation.Timed;
 import org.springframework.validation.annotation.Validated;
 
@@ -12,6 +13,7 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
 
+import static be.vdab.vrijstellingenbeleid.domain.tasting.Tasting.TastingBuilder.tasting;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 @Named
@@ -35,12 +37,15 @@ public class TastingService {
     }
 
     @Timed
-    public Tasting create(@Valid Tasting tasting) {
+    public Tasting create(@Valid VoegTastingToeCommand command) {
+        Tasting tasting = tasting()
+            .withId(command.getAggregateId())
+            .withNaam(command.getNaam())
+            .build();
         return validateAndSave(tasting);
     }
 
     private Tasting validateAndSave(Tasting tasting) {
         return repository.save(tasting);
     }
-
 }
