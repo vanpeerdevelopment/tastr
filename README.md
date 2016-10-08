@@ -5,8 +5,7 @@ tastr is the ultimate tool to help you taste and rate any wine you drink
 - [git](https://git-scm.com/)
 - [java jdk8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
 - [maven](https://maven.apache.org/)
-- [virtualbox](https://www.virtualbox.org/)
-- [docker](https://www.docker.com/)
+- [virtualbox](https://www.virtualbox.org/) + [docker](https://www.docker.com/) or [postgres db](https://www.postgresql.org/) 
 
 # technologies
 ## Ops
