@@ -13,6 +13,8 @@ tastr is the ultimate tool to help you taste and rate any wine you drink
 - [postgres db](https://www.postgresql.org/)
 
 ## Backend
+- [flyway](https://flywaydb.org/)
+- [spring boot](http://projects.spring.io/spring-boot/)
 - [spring data](http://projects.spring.io/spring-data/)
 
 # local postgres db
