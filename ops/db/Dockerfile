@@ -1,0 +1,3 @@
+FROM postgres:9.6.0
+
+ENV POSTGRES_USER=admin POSTGRES_PASSWORD=admin POSTGRES_DB=tastr
