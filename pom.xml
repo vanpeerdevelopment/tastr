@@ -16,6 +16,7 @@
 
     <modules>
         <module>tastr-infrastructure</module>
+        <module>tastr-domain</module>
     </modules>
 
     <properties>
@@ -84,6 +85,18 @@
             <dependency>
                 <groupId>eu.tastr</groupId>
                 <artifactId>tastr-infrastructure</artifactId>
+                <type>test-jar</type>
+                <version>${project.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>eu.tastr</groupId>
+                <artifactId>tastr-domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>eu.tastr</groupId>
+                <artifactId>tastr-domain</artifactId>
                 <type>test-jar</type>
                 <version>${project.version}</version>
                 <scope>test</scope>

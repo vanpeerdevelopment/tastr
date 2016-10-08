@@ -6,6 +6,8 @@ import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import javax.validation.ConstraintViolationException;
+
 import static be.vdab.vrijstellingenbeleid.infrastructure.test.matcher.ConstraintViolationExceptionMatcher.constraintViolationExceptionContainingViolationMessage;
 import static junit.framework.TestCase.fail;
 
@@ -33,6 +35,10 @@ public abstract class UnitTest {
 
     protected void expectIllegalStateExceptionWithMessage(String message) {
         expectExceptionWithMessage(IllegalStateException.class, message);
+    }
+
+    protected void expectConstraintViolationWithMessage() {
+        this.expectedException.expect(ConstraintViolationException.class);
     }
 
     protected void expectConstraintViolationExceptionWithMessages(String... violations){

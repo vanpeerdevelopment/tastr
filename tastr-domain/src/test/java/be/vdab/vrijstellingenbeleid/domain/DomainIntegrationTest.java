@@ -1,16 +1,15 @@
-package be.vdab.vrijstellingenbeleid.infrastructure;
+package be.vdab.vrijstellingenbeleid.domain;
 
+import be.vdab.vrijstellingenbeleid.domain.spring.DomainConfig;
 import be.vdab.vrijstellingenbeleid.infrastructure.spring.InfrastructureConfig;
 import be.vdab.vrijstellingenbeleid.infrastructure.spring.InfrastructureTestPropertiesConfig;
 import be.vdab.vrijstellingenbeleid.infrastructure.test.RollingBackIntegrationTest;
-import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 
-import javax.inject.Inject;
-
 @ContextConfiguration(classes = {
+    DomainConfig.class,
     InfrastructureTestPropertiesConfig.class,
     InfrastructureConfig.class
 })
-public abstract class InfrastructureIntegrationTest extends RollingBackIntegrationTest {
+public abstract class DomainIntegrationTest extends RollingBackIntegrationTest {
 }
