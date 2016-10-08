@@ -5,4 +5,6 @@ import org.springframework.data.repository.NoRepositoryBean;
 
 @NoRepositoryBean
 public interface Repository<T extends AggregateRoot<ID>, ID extends Id> extends JpaRepository<T, ID> {
+
+    T findOneExisting(ID var1);
 }

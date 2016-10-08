@@ -1,5 +1,7 @@
 package be.vdab.vrijstellingenbeleid.infrastructure.test;
 
+import be.vdab.vrijstellingenbeleid.infrastructure.ddd.Id;
+import be.vdab.vrijstellingenbeleid.infrastructure.exception.VrijstellingenbeleidEntityBestaatNietException;
 import be.vdab.vrijstellingenbeleid.infrastructure.test.matcher.ConstraintViolationExceptionMatcher;
 import org.hamcrest.Matcher;
 import org.junit.Rule;
@@ -36,7 +38,17 @@ public abstract class RollingBackIntegrationTest extends AbstractTransactionalJU
         expectExceptionWithMessage(IllegalStateException.class, message);
     }
 
-    protected void expectConstraintViolationExceptionWithMessages(String... violations){
+    protected void expectConstraintViolationExceptionWithMessages(String... violations) {
         expectedException.expect(ConstraintViolationExceptionMatcher.constraintViolationExceptionContainingViolationMessage(violations));
+    }
+
+    protected void expectTastrEntityBestaatNietExceptionWithMessage(Id id) {
+        expectExceptionWithMessage(
+            VrijstellingenbeleidEntityBestaatNietException.class,
+            String.format(
+                "Het opgezochte element (met %s %s) bestaat niet (meer).",
+                id.getClass().getSimpleName(),
+                id.getValue())
+        );
     }
 }
