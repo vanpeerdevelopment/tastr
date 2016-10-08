@@ -69,3 +69,7 @@ bower_components/
 jspm_packages/
 dist/
 npm-debug.log
+
+# Project #
+###########
+ops/local
