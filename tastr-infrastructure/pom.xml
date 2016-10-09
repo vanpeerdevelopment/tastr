@@ -13,6 +13,7 @@
         <properties.version>1.0.0</properties.version>
         <flyway.version>4.0.3</flyway.version>
         <sql-maven-plugin.version>1.5</sql-maven-plugin.version>
+        <skipSql>false</skipSql>
     </properties>
 
     <dependencies>
@@ -101,6 +102,7 @@
                         <schemas>
                             <schema>${db.schema}</schema>
                         </schemas>
+                        <skip>${skipSql}</skip>
                     </configuration>
                     <executions>
                         <execution>
