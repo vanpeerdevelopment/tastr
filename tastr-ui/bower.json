@@ -1,0 +1,20 @@
+{
+  "name": "tastr",
+  "description": "tastr is the ultimate tool to help you taste and rate any wine you drink",
+  "version": "0.0.0",
+  "homepage": "http://tastr.eu",
+  "authors": [
+    {
+      "name": "Dieter Van Peer",
+      "email": "dieter@vanpeerdevelopment.be",
+      "homepage": "https://github.com/vanpeerdevelopment"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanpeerdevelopment/tastr.git"
+  },
+  "dependencies": {
+    "jquery": "3.1.1"
+  }
+}

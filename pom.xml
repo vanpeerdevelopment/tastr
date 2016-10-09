@@ -20,6 +20,7 @@
         <module>tastr-service</module>
         <module>tastr-api</module>
         <module>tastr-fatjar</module>
+        <module>tastr-ui</module>
     </modules>
 
     <properties>

@@ -1,0 +1,53 @@
+{
+  "name": "tastr",
+  "description": "tastr is the ultimate tool to help you taste and rate any wine you drink",
+  "version": "0.0.0",
+  "homepage": "http://tastr.eu",
+  "contributors": [
+    {
+      "name": "Dieter Van Peer",
+      "email": "dieter@vanpeerdevelopment.be",
+      "url": "https://github.com/vanpeerdevelopment"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanpeerdevelopment/tastr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vanpeerdevelopment/tastr/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "6.17.0",
+    "babel-preset-es2015": "6.16.0",
+    "bower": "1.7.9",
+    "browser-sync": "2.17.1",
+    "del": "2.2.2",
+    "gulp": "3.9.1",
+    "gulp-concat": "2.6.0",
+    "gulp-cssnano": "2.1.2",
+    "gulp-plumber": "1.1.0",
+    "gulp-rename": "1.2.2",
+    "gulp-sourcemaps": "1.6.0",
+    "gulp-uglify": "2.0.0",
+    "http-proxy-middleware": "0.17.2",
+    "main-bower-files": "2.13.1",
+    "run-sequence": "1.2.2"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "scripts": {
+    "postinstall": "bower install --config.interactive=false",
+    "bower": "bower ",
+    "bower-list": "bower list ",
+    "bower-install": "bower install -S ",
+    "bower-uninstall": "bower uninstall -S ",
+    "gulp": "gulp ",
+    "build": "gulp build",
+    "dev": "gulp dev"
+  }
+}
