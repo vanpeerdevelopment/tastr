@@ -7,7 +7,7 @@ import org.springframework.context.annotation.PropertySources;
 @Configuration
 @PropertySources({
     @PropertySource(value = "classpath:test/tastr.infrastructure.default.test.properties", ignoreResourceNotFound = false),
-    @PropertySource(value = "classpath:test/tastr.infrastructure.${tastr.environment}.test.properties", ignoreResourceNotFound = true)
+    @PropertySource(value = "classpath:test/tastr.infrastructure.${tastrenvironment}.test.properties", ignoreResourceNotFound = true)
 })
 public class InfrastructureTestPropertiesConfig {
 }

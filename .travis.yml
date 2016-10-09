@@ -2,10 +2,10 @@ language: java
 jdk: oraclejdk8
 
 env:
-  - tastr.environment=travis
+  - tastrenvironment=travis
 
-services:
-  - postgresql
+addons:
+  postgresql: "9.5"
 
 install: mvn clean install -DskipTests -DskipSql -B -V
 
