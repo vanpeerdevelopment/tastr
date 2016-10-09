@@ -13,6 +13,5 @@ before_script:
   - psql -c 'create database tastr;' -U postgres
   - mvn initialize -PdbInit -pl tastr-infrastructure -Dtastr.environment=travis
   - "sh -e /etc/init.d/xvfb start"
-  - sleep 3
 
 script: mvn install -B -V -Dtastr.environment=travis
