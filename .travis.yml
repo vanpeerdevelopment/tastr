@@ -1,9 +1,6 @@
 language: java
 jdk: oraclejdk8
 
-env:
-  - tastrenvironment=travis
-
 addons:
   postgresql: "9.4"
 
@@ -11,6 +8,6 @@ install: mvn clean install -DskipTests -DskipSql -B -V
 
 before_script:
   - psql -c 'create database tastr;' -U postgres
-  - mvn initialize -PdbInit -pl tastr-infrastructure
+  - mvn initialize -PdbInit -pl tastr-infrastructure -Dtastrenvironment=travis
 
-script: mvn install -B -V
+script: mvn install -B -V -Dtastrenvironment=travis
