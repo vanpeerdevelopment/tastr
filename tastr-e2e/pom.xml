@@ -103,7 +103,7 @@
                                 </goals>
                                 <configuration>
                                     <mainClass>
-                                        be.vdab.vrijstellingenbeleid.e2e.tests.application.testdata.TestData
+                                        eu.tastr.e2e.application.testdata.TestData
                                     </mainClass>
                                     <classpathScope>test</classpathScope>
                                 </configuration>
@@ -129,7 +129,7 @@
                                 </goals>
                                 <configuration>
                                     <mainClass>
-                                        be.vdab.vrijstellingenbeleid.e2e.tests.application.testapplication.TestApplication
+                                        eu.tastr.e2e.application.testapplication.TestApplication
                                     </mainClass>
                                     <classpathScope>test</classpathScope>
                                 </configuration>
