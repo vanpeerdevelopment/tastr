@@ -1,4 +1,6 @@
 language: java
 jdk: oraclejdk8
 
-install: mvn install -DskipTests -DskipSql -B -V
+install: mvn clean install -DskipTests -DskipSql -B -V
+
+script: mvn install -B -V
