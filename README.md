@@ -1,4 +1,4 @@
-# tastr
+# tastr [![Build Status](https://travis-ci.org/vanpeerdevelopment/tastr.svg?branch=master)](https://travis-ci.org/vanpeerdevelopment/tastr)
 tastr is the ultimate tool to help you taste and rate any wine you drink
 
 # prerequisites
