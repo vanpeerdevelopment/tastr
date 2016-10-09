@@ -5,7 +5,7 @@ env:
   - tastrenvironment=travis
 
 addons:
-  postgresql: "9.5"
+  postgresql: "9.4"
 
 install: mvn clean install -DskipTests -DskipSql -B -V
 
