@@ -83,7 +83,7 @@
                             <configuration>
                                 <files>
                                     <file>
-                                        ${basedir}/src/test/resources/mvn/tastr.infrastructure.${tastrenvironment}.mvn.properties
+                                        ${basedir}/src/test/resources/mvn/tastr.infrastructure.${tastr.environment}.mvn.properties
                                     </file>
                                 </files>
                             </configuration>
