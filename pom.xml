@@ -21,6 +21,7 @@
         <module>tastr-api</module>
         <module>tastr-fatjar</module>
         <module>tastr-ui</module>
+        <module>tastr-e2e</module>
     </modules>
 
     <properties>
@@ -33,8 +34,8 @@
         <postgresql.version>9.4.1211</postgresql.version>
         <assertj.version>3.5.2</assertj.version>
         <festreflect.version>1.4.1</festreflect.version>
-        <selenide.version>3.10</selenide.version>
-        <restassured.version>3.0.1</restassured.version>
+        <selenide.version>3.6</selenide.version>
+        <restassured.version>2.9.0</restassured.version>
     </properties>
 
     <dependencies>
@@ -141,6 +142,12 @@
                 <version>${project.version}</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>eu.tastr</groupId>
+                <artifactId>tastr-ui</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
 
             <!-- apache -->
             <dependency>

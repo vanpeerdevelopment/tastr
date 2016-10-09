@@ -17,6 +17,8 @@ tastr is the ultimate tool to help you taste and rate any wine you drink
 - [spring data](http://projects.spring.io/spring-data/)
 - [spring mvc](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html)
 
+## Frontend
+
 # local postgres db
 1. `ops/scripts/create-docker-vm.bat`
     - creates linux vm for docker with port forwarding of postgres port `5432`

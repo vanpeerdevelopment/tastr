@@ -5,6 +5,7 @@ import be.vdab.vrijstellingenbeleid.domain.tasting.TastingId;
 import be.vdab.vrijstellingenbeleid.service.tasting.TastingService;
 import com.codahale.metrics.annotation.Timed;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -43,8 +44,8 @@ public class TastingResource {
     }
 
     @Timed
-    @RequestMapping(method = POST, produces = APPLICATION_JSON_VALUE)
-    public TastingDto createTasting(TastingDto tastingDto) {
+    @RequestMapping(method = POST, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    public TastingDto createTasting(@RequestBody TastingDto tastingDto) {
         Tasting tasting = service.create(mapper.naarVoegTastingToeCommand(tastingDto));
         return mapper.naarTastingDto(tasting);
     }

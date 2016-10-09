@@ -16,6 +16,7 @@
     </properties>
 
     <dependencies>
+        <!-- tastr -->
         <dependency>
             <groupId>eu.tastr</groupId>
             <artifactId>tastr-fatjar</artifactId>
