@@ -37,14 +37,9 @@ tastr is the ultimate tool to help you taste and rate any wine you drink
 
 # heroku
 https://docs.travis-ci.com/user/deployment/heroku/
-0. which postgres verion on heroku
-1. db backups -> https://devcenter.heroku.com/articles/heroku-postgres-backups
+
 2. db clean migrate -> https://devcenter.heroku.com/articles/running-database-migrations-for-java-apps
 3. logging -> papertrail
-4. postgres: create tastr db, schema, username password
-5. set properties as config vars
-6. java8 in system.properties
-7. custom domain
 8. check addons
 10. version and tag in git + push this version to heroku
-
+11. Lokaal(9.6), travis (9.x), heroku (9.5.4)-> zelfde db versie, zelfde manier user aanmaken https://devcenter.heroku.com/articles/heroku-postgresql#connection-permissions

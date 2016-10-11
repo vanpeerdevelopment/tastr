@@ -17,6 +17,12 @@
     </properties>
 
     <dependencies>
+        <!-- flyway -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+
         <!-- spring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
