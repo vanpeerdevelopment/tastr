@@ -37,6 +37,5 @@
 
 # heroku
 8. check addons
-10. version and tag in git + push this version to heroku
 11. Lokaal(9.6), travis (9.x), heroku (9.5.4)-> zelfde db versie, zelfde manier user aanmaken https://devcenter.heroku.com/articles/heroku-postgresql#connection-permissions
 12. is init.sql nog nodig?
