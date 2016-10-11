@@ -2,7 +2,7 @@ language: java
 jdk: oraclejdk8
 
 env:
-- DISPLAY=:99.0
+  - DISPLAY=:99.0
 
 addons:
   postgresql: '9.4'
@@ -10,13 +10,13 @@ addons:
 install: mvn clean install -DskipTests -DskipSql -B -V
 
 before_script:
-- psql -c 'create database tastr;' -U postgres
-- mvn initialize -PdbInit -pl tastr-infrastructure -Dtastr.environment=travis
-- sh -e /etc/init.d/xvfb start
+  - psql -c 'create database tastr;' -U postgres
+  - mvn initialize -PdbInit -pl tastr-infrastructure -Dtastr.environment=travis
+  - sh -e /etc/init.d/xvfb start
 script: mvn install -B -V -Dtastr.environment=travis
 
 deploy:
   provider: heroku
-  app: tastr
   api_key:
-    secure: UnaBkj9Jz5RlmY6KDjVSG+qGDSlz+cYt/FvjTHSvcNPshf7nOGCeMDhrDHwaUPAAuF054DiZm5wDkjluMPfvWcoPIUuXjdIuHOT8wNUGI94LA6IslWrJNcF7oKeHqCxgXfQaTwH73dnVC9GiikkWJTnPYbwV0J16HM9/79b6+/T6n67ILBnM4gLJgssYyCl3p5J0uRuYfXozifr6dXFIQnbdCI2i5NWNzjd7KUunwzM6qLTL861uPpx5/R0YX9NghvBd2MAIHYON1I2p8tyArm5MU18Y2AjZnu+cK8Dq+v09Ntb9nddZA9YU7l9/7UkUK3n8WkW0igeboc1YIKuDh6cS4lmsqYOtzn0HqYQqqZnW82Two/qVgtJfJDrbV4UTkWHJVNCuWsecB7g0ji5eQxHnfMwJjOAVV4q/03D9id7NpuKTlzPIhdZpSeWRwbT7DL7QPbjf/Kc+d4aain8/w92syBJfm/l+lG6hsv9w5YvVb3Ks8K5W2uBlmd5XH2ct/1IIn2fnwEA+uTcFw2+rTL6XMjlgi7wTesLx2W9/A8/JxxPeQaidrk/baAaoTWyOyOA4JCeYj8JJLTx+MM+tqoiSZqS5dN7vKIG6/yahPYm97CM3HfGEPz425BEp8oWK8z+/C/xUpUah6SpmSSL0NBSC0bvAFUav6VivEKwahps=
+    secure: Q0DzNcgSUJpqDvB6/6PP9ZaGDJD/TWiUNxb7eLrWYyJSdbOH4pjzKnebWGU/TjFIIJLWSXqUCDb/7gMWZKH868EpOl+sXhV5g8gOD2E9fjYO2/0+q2Ig1mRMmTsy8eQqRhoyiCdG0V1m2nE/RS93yf98Xf8D3nzd15B7oI7IJf90afUjzKqPrXhENN2p9KaiIdsjY9rY3yXV1XZD2ejPrPEOwd78cqrlyA5pGY3EOI/ETnFcU+XyTbjM80kgk7BELyD6s3mp+1HAC7VqlLdwV5WfnDFwrA9lg65Dzt6yKkN6exzk/LNt50dTbna5EbySn9IzQLpt/I/UnlUeN/VCQnYSGw7yvp5dpP/DvtZl3GAZW9RN6DaiBk44+R+M21Gx9wQZU8LPKqawpSF0Tt04ah0VAnTd/2q/dDdLcqyefGwnHTGxtwo+rXGhn4WItWLf6yh+eCPlY1uCe890kopTutzKVhhhannDVGgkiIcfB/bDioxpZPz+TlLqFj8AFqLZTpbUl/TUCQnchvgjTKGI7dMRij9/xfjfOULW2qo/GSONE+7nt6EL3AnGtbiC2+NyRX9J1sNRTXgmTgGEtp7Upo/WFgOZYi9AkTJX7mMh3zFiOkf83FeohaXI2dTo0/EhTqLHR3jP0s25uQgowLpGio71gXSX+m263+kCTqhRe4U=
+  app: tastr
