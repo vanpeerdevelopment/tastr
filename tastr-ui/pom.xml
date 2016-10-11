@@ -19,7 +19,7 @@
         <!-- tastr -->
         <dependency>
             <groupId>eu.tastr</groupId>
-            <artifactId>tastr-fatjar</artifactId>
+            <artifactId>tastr-api</artifactId>
             <scope>runtime</scope>
         </dependency>
     </dependencies>

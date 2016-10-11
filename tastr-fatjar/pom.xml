@@ -27,6 +27,12 @@
             <groupId>eu.tastr</groupId>
             <artifactId>tastr-api</artifactId>
         </dependency>
+        <!-- tastr -->
+        <dependency>
+            <groupId>eu.tastr</groupId>
+            <artifactId>tastr-ui</artifactId>
+            <scope>runtime</scope>
+        </dependency>
 
         <!-- spring -->
         <dependency>

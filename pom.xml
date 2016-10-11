@@ -19,8 +19,8 @@
         <module>tastr-domain</module>
         <module>tastr-service</module>
         <module>tastr-api</module>
-        <module>tastr-fatjar</module>
         <module>tastr-ui</module>
+        <module>tastr-fatjar</module>
         <module>tastr-e2e</module>
     </modules>
 
