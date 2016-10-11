@@ -2,16 +2,21 @@ language: java
 jdk: oraclejdk8
 
 env:
- - DISPLAY=:99.0
+- DISPLAY=:99.0
 
 addons:
-  postgresql: "9.4"
+  postgresql: '9.4'
 
 install: mvn clean install -DskipTests -DskipSql -B -V
 
 before_script:
-  - psql -c 'create database tastr;' -U postgres
-  - mvn initialize -PdbInit -pl tastr-infrastructure -Dtastr.environment=travis
-  - "sh -e /etc/init.d/xvfb start"
-
+- psql -c 'create database tastr;' -U postgres
+- mvn initialize -PdbInit -pl tastr-infrastructure -Dtastr.environment=travis
+- sh -e /etc/init.d/xvfb start
 script: mvn install -B -V -Dtastr.environment=travis
+
+deploy:
+  api_key:
+    provider: heroku
+    secure: UnaBkj9Jz5RlmY6KDjVSG+qGDSlz+cYt/FvjTHSvcNPshf7nOGCeMDhrDHwaUPAAuF054DiZm5wDkjluMPfvWcoPIUuXjdIuHOT8wNUGI94LA6IslWrJNcF7oKeHqCxgXfQaTwH73dnVC9GiikkWJTnPYbwV0J16HM9/79b6+/T6n67ILBnM4gLJgssYyCl3p5J0uRuYfXozifr6dXFIQnbdCI2i5NWNzjd7KUunwzM6qLTL861uPpx5/R0YX9NghvBd2MAIHYON1I2p8tyArm5MU18Y2AjZnu+cK8Dq+v09Ntb9nddZA9YU7l9/7UkUK3n8WkW0igeboc1YIKuDh6cS4lmsqYOtzn0HqYQqqZnW82Two/qVgtJfJDrbV4UTkWHJVNCuWsecB7g0ji5eQxHnfMwJjOAVV4q/03D9id7NpuKTlzPIhdZpSeWRwbT7DL7QPbjf/Kc+d4aain8/w92syBJfm/l+lG6hsv9w5YvVb3Ks8K5W2uBlmd5XH2ct/1IIn2fnwEA+uTcFw2+rTL6XMjlgi7wTesLx2W9/A8/JxxPeQaidrk/baAaoTWyOyOA4JCeYj8JJLTx+MM+tqoiSZqS5dN7vKIG6/yahPYm97CM3HfGEPz425BEp8oWK8z+/C/xUpUah6SpmSSL0NBSC0bvAFUav6VivEKwahps=
+    app: tastr

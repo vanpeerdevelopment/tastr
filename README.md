@@ -37,9 +37,7 @@ tastr is the ultimate tool to help you taste and rate any wine you drink
 
 # heroku
 https://docs.travis-ci.com/user/deployment/heroku/
-
-2. db clean migrate -> https://devcenter.heroku.com/articles/running-database-migrations-for-java-apps
-3. logging -> papertrail
 8. check addons
 10. version and tag in git + push this version to heroku
 11. Lokaal(9.6), travis (9.x), heroku (9.5.4)-> zelfde db versie, zelfde manier user aanmaken https://devcenter.heroku.com/articles/heroku-postgresql#connection-permissions
+12. is init.sql nog nodig?
