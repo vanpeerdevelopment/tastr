@@ -1,5 +1,5 @@
-# tastr [![Build Status](https://travis-ci.org/vanpeerdevelopment/tastr.svg?branch=master)](https://travis-ci.org/vanpeerdevelopment/tastr) [![Heroku](http://heroku-badge.herokuapp.com/?app=tastr&style=flat&svg=1)]
-tastr is the ultimate tool to help you taste and rate any wine you drink
+# tastr [![Build Status](https://travis-ci.org/vanpeerdevelopment/tastr.svg?branch=master)](https://travis-ci.org/vanpeerdevelopment/tastr) [![Heroku](http://heroku-badge.herokuapp.com/?app=tastr&style=flat&svg=1)](tastr.eu)
+[tastr](tastr.eu) is the ultimate tool to help you taste and rate any wine you drink
 
 # prerequisites
 - [git](https://git-scm.com/)
