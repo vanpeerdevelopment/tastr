@@ -1,4 +1,4 @@
-# tastr [![Build Status](https://travis-ci.org/vanpeerdevelopment/tastr.svg?branch=master)](https://travis-ci.org/vanpeerdevelopment/tastr)
+# tastr [![Build Status](https://travis-ci.org/vanpeerdevelopment/tastr.svg?branch=master)](https://travis-ci.org/vanpeerdevelopment/tastr) [![Heroku](http://heroku-badge.herokuapp.com/?app=tastr&style=flat&svg=1)]
 tastr is the ultimate tool to help you taste and rate any wine you drink
 
 # prerequisites
@@ -36,7 +36,6 @@ tastr is the ultimate tool to help you taste and rate any wine you drink
 4. `mvn clean install`
 
 # heroku
-https://docs.travis-ci.com/user/deployment/heroku/
 8. check addons
 10. version and tag in git + push this version to heroku
 11. Lokaal(9.6), travis (9.x), heroku (9.5.4)-> zelfde db versie, zelfde manier user aanmaken https://devcenter.heroku.com/articles/heroku-postgresql#connection-permissions
