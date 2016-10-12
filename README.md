@@ -36,7 +36,5 @@
 4. `mvn clean install`
 
 # heroku
-1. Lokaal(9.6), travis (9.x), heroku (9.5.4)-> zelfde db versie, zelfde manier user aanmaken https://devcenter.heroku.com/articles/heroku-postgresql#connection-permissions
-2. is init.sql nog nodig?
-4. tour of heroes
-5. typescript
+1. tour of heroes
+2. typescript
