@@ -13,6 +13,7 @@
         <properties.version>1.0.0</properties.version>
         <flyway.version>4.0.3</flyway.version>
         <sql-maven-plugin.version>1.5</sql-maven-plugin.version>
+        <maven-assembly-plugin.version>2.6</maven-assembly-plugin.version>
         <skipSql>false</skipSql>
     </properties>
 
@@ -73,6 +74,10 @@
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+            </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
@@ -117,6 +122,32 @@
                                 <goal>clean</goal>
                                 <goal>migrate</goal>
                             </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>${maven-assembly-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>make-fat-jar</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>single</goal>
+                            </goals>
+                            <configuration>
+                                <finalName>tastr-migration</finalName>
+                                <appendAssemblyId>false</appendAssemblyId>
+                                <descriptorRefs>
+                                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                                </descriptorRefs>
+                                <archive>
+                                    <manifest>
+                                        <mainClass>eu.tastr.infrastructure.migration.Migration</mainClass>
+                                    </manifest>
+                                </archive>
+                            </configuration>
                         </execution>
                     </executions>
                 </plugin>
