@@ -40,8 +40,8 @@ gulp.task("dev", callback => {
  */
 gulp.task("build:app", ["build:app:src"]);
 gulp.task("watch:app", ["watch:app:src"]);
-gulp.task("build:app:src", ["build:app:src:index", "build:app:src:js"]);
-gulp.task("watch:app:src", ["watch:app:src:index", "watch:app:src:js"]);
+gulp.task("build:app:src", ["build:app:src:index", "build:app:src:js", "build:app:src:img"]);
+gulp.task("watch:app:src", ["watch:app:src:index", "watch:app:src:js", "watch:app:src:img"]);
 
 gulp.task("build:vendor", ["build:vendor:js", "build:vendor:css"]);
 gulp.task("watch:vendor", ["watch:vendor:js", "watch:vendor:css"]);
@@ -105,6 +105,19 @@ gulp.task("build:app:src:js", () => {
 
 gulp.task("watch:app:src:js", () => {
     gulp.watch(config.files.js, ["build:app:src:js"]);
+});
+
+/*
+ * app:src:img
+ */
+gulp.task("build:app:src:img", () => {
+    return gulp
+        .src(config.files.img)
+        .pipe(gulp.dest(config.dirs.distSrcImg));
+});
+
+gulp.task("watch:app:src:img", () => {
+    gulp.watch(config.files.img, ["build:app:src:img"]);
 });
 
 /*
