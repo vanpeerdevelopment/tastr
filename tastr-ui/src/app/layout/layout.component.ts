@@ -9,4 +9,4 @@ import {Component} from "@angular/core";
             <layout-footer></layout-footer>
         </div>`
 })
-class LayoutComponent {}
+export class LayoutComponent {}

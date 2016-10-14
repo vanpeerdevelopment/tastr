@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
     selector: 'layout-header',
     templateUrl: 'app/layout/layout.header.html'
 })
-class LayoutHeaderComponent {
+export class LayoutHeaderComponent {
     jaar : number = new Date().getFullYear();
 }

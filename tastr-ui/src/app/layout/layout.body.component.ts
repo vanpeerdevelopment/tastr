@@ -4,4 +4,4 @@ import {Component} from '@angular/core';
     selector: 'layout-body',
     templateUrl: 'app/layout/layout.body.html'
 })
-class LayoutBodyComponent {}
+export class LayoutBodyComponent {}
