@@ -5,6 +5,7 @@ import plumber from "gulp-plumber";
 import sourceMaps from "gulp-sourcemaps";
 import concat from "gulp-concat";
 import uglify from "gulp-uglify";
+import typescript from "gulp-typescript";
 import rename from "gulp-rename";
 import mainBowerFiles from "main-bower-files";
 import cssnano from "gulp-cssnano";
@@ -40,13 +41,13 @@ gulp.task("dev", callback => {
  */
 gulp.task("build:app", ["build:app:src"]);
 gulp.task("watch:app", ["watch:app:src"]);
-gulp.task("build:app:src", ["build:app:src:index", "build:app:src:js", "build:app:src:img"]);
-gulp.task("watch:app:src", ["watch:app:src:index", "watch:app:src:js", "watch:app:src:img"]);
+gulp.task("build:app:src", ["build:app:src:index", "build:app:src:systemjsconfig", "build:app:src:ts", "build:app:src:img"]);
+gulp.task("watch:app:src", ["watch:app:src:index", "watch:app:src:systemjsconfig", "watch:app:src:ts", "watch:app:src:img"]);
 
-gulp.task("build:vendor", ["build:vendor:js", "build:vendor:css"]);
-gulp.task("watch:vendor", ["watch:vendor:js", "watch:vendor:css"]);
-gulp.task("build:vendor:js", ["build:vendor:js:bower", "build:vendor:js:npm"]);
-gulp.task("watch:vendor:js", ["watch:vendor:js:bower", "watch:vendor:js:npm"]);
+gulp.task("build:vendor", ["build:vendor:js"]);
+gulp.task("watch:vendor", ["watch:vendor:js"]);
+gulp.task("build:vendor:js", ["build:vendor:js:npm", "build:vendor:js:npm:folder"]);
+gulp.task("watch:vendor:js", ["watch:vendor:js:npm", "watch:vendor:js:npm:folder"]);
 gulp.task("build:vendor:css", ["build:vendor:css:bower"]);
 gulp.task("watch:vendor:css", ["watch:vendor:css:bower"]);
 
@@ -89,22 +90,36 @@ gulp.task("watch:app:src:index", () => {
 });
 
 /*
+ * app:src:systemjsconfig
+ */
+gulp.task("build:app:src:systemjsconfig", () => {
+    return gulp
+        .src(config.files.systemjsconfig)
+        .pipe(gulp.dest(config.dirs.distSrc));
+});
+
+gulp.task("watch:app:src:systemjsconfig", () => {
+    gulp.watch(config.files.systemjsconfig, ["build:app:src:systemjsconfig"]);
+});
+
+/*
  * app:src:js
  */
-gulp.task("build:app:src:js", () => {
-    return gulp
-        .src(config.files.js)
-        .pipe(plumber())
-        .pipe(sourceMaps.init())
-        .pipe(concat("app.js"))
-        .pipe(uglify())
-        .pipe(rename({suffix: ".min"}))
-        .pipe(sourceMaps.write("./"))
+gulp.task("build:app:src:ts", () => {
+    let tastrTypescript = typescript.createProject('tsconfig.json');
+    let tsResult = tastrTypescript.src().pipe(tastrTypescript());
+    return tsResult.js
+        // .pipe(plumber())
+        // .pipe(sourceMaps.init())
+        // .pipe(concat("app.js"))
+        // .pipe(uglify())
+        // .pipe(rename({suffix: ".min"}))
+        // .pipe(sourceMaps.write("./"))
         .pipe(gulp.dest(config.dirs.distSrcApp));
 });
 
-gulp.task("watch:app:src:js", () => {
-    gulp.watch(config.files.js, ["build:app:src:js"]);
+gulp.task("watch:app:src:ts", () => {
+    gulp.watch(config.files.js, ["build:app:src:ts"]);
 });
 
 /*
@@ -153,8 +168,22 @@ gulp.task("watch:vendor:js:bower", () => {
  */
 gulp.task("build:vendor:js:npm", () => {
     return gulp
-        .src([])
+        .src([
+            "node_modules/core-js/client/shim.js",
+            "node_modules/zone.js/dist/zone.js",
+            "node_modules/reflect-metadata/Reflect.js",
+            "node_modules/systemjs/dist/system.src.js",
+            "node_modules/@angular/core/bundles/core.umd.js",
+            "node_modules/@angular/common/bundles/common.umd.js",
+            "node_modules/@angular/compiler/bundles/compiler.umd.js",
+            "node_modules/@angular/platform-browser/bundles/platform-browser.umd.js",
+            "node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js",
+            "node_modules/@angular/http/bundles/http.umd.js",
+            "node_modules/@angular/router/bundles/router.umd.js",
+            "node_modules/@angular/forms/bundles/forms.umd.js",
+        ])
         .pipe(plumber())
+        .pipe(rename(srcJsToJs))
         .pipe(sourceMaps.init())
         .pipe(uglify())
         .pipe(rename({suffix: ".min"}))
@@ -164,6 +193,26 @@ gulp.task("build:vendor:js:npm", () => {
 
 gulp.task("watch:vendor:js:npm", () => {
     gulp.watch(config.files.npm, ["build:vendor:js:npm"]);
+});
+
+/*
+ * vendor:js:npm:folder
+ */
+gulp.task("build:vendor:js:npm:folder", ["build:vendor:js:npm:folder:rxjs", "build:vendor:js:npm:folder:ng"]);
+gulp.task("build:vendor:js:npm:folder:rxjs", () => {
+    return gulp
+        .src("node_modules/rxjs/**/*")
+        .pipe(gulp.dest(`${config.dirs.distSrcVendorJs}/rxjs`));
+});
+
+gulp.task("build:vendor:js:npm:folder:ng", () => {
+    return gulp
+        .src("node_modules/angular-in-memory-web-api/**/*")
+        .pipe(gulp.dest(`${config.dirs.distSrcVendorJs}/angular-in-memory-web-api`));
+});
+
+gulp.task("watch:vendor:js:npm:folder", () => {
+    gulp.watch(config.files.npm, ["build:vendor:js:npm:folder"]);
 });
 
 /*

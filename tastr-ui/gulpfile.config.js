@@ -13,7 +13,8 @@ export let dirs = {
 export let files = {
     distSrc: `${dirs.distSrc}/**/*`,
     index: `${dirs.src}/index.html`,
-    js: `${dirs.srcApp}/**/*.js`,
+    systemjsconfig: `${dirs.src}/systemjs.config.js`,
+    ts: `${dirs.srcApp}/**/*.ts`,
     img: `${dirs.srcImg}/**/*`,
     bower: "bower.json",
     npm: "package.json"
