@@ -1,11 +1,12 @@
-import {Component} from '@angular/core';
+import {Component} from "@angular/core";
 
 @Component({
     selector: 'layout',
     template: `
         <layout-header></layout-header>
-        <layout-body></layout-body>
-        <layout-footer></layout-footer>`
+        <div class="container">
+            <layout-body></layout-body>
+            <layout-footer></layout-footer>
+        </div>`
 })
-export class LayoutComponent {
-}
+class LayoutComponent {}

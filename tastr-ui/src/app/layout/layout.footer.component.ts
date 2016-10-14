@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
     selector: 'layout-footer',
-    template: '<div>footer</div>'
+    templateUrl: 'app/layout/layout.footer.html'
 })
-export class LayoutFooterComponent { }
+class LayoutFooterComponent {}

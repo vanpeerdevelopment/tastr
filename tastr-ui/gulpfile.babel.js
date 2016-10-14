@@ -41,8 +41,8 @@ gulp.task("dev", callback => {
  */
 gulp.task("build:app", ["build:app:src"]);
 gulp.task("watch:app", ["watch:app:src"]);
-gulp.task("build:app:src", ["build:app:src:index", "build:app:src:systemjsconfig", "build:app:src:ts", "build:app:src:img"]);
-gulp.task("watch:app:src", ["watch:app:src:index", "watch:app:src:systemjsconfig", "watch:app:src:ts", "watch:app:src:img"]);
+gulp.task("build:app:src", ["build:app:src:index", "build:app:src:html", "build:app:src:systemjsconfig", "build:app:src:ts", "build:app:src:img"]);
+gulp.task("watch:app:src", ["watch:app:src:index", "watch:app:src:html", "watch:app:src:systemjsconfig", "watch:app:src:ts", "watch:app:src:img"]);
 
 gulp.task("build:vendor", ["build:vendor:js", "build:vendor:css", "build:vendor:fonts"]);
 gulp.task("watch:vendor", ["watch:vendor:js", "watch:vendor:css", "watch:vendor:fonts"]);
@@ -89,6 +89,19 @@ gulp.task("build:app:src:index", () => {
 
 gulp.task("watch:app:src:index", () => {
     gulp.watch(config.files.index, ["build:app:src:index"]);
+});
+
+/*
+ * app:src:html
+ */
+gulp.task("build:app:src:html", () => {
+    return gulp
+        .src(config.files.html)
+        .pipe(gulp.dest(config.dirs.distSrcApp));
+});
+
+gulp.task("watch:app:src:html", () => {
+    gulp.watch(config.files.html, ["build:app:src:html"]);
 });
 
 /*

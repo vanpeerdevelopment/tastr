@@ -15,6 +15,7 @@ export let dirs = {
 export let files = {
     distSrc: `${dirs.distSrc}/**/*`,
     index: `${dirs.src}/index.html`,
+    html: `${dirs.srcApp}/**/*.html`,
     systemjsconfig: `${dirs.src}/systemjs.config.js`,
     ts: `${dirs.srcApp}/**/*.ts`,
     img: `${dirs.srcImg}/**/*`,
