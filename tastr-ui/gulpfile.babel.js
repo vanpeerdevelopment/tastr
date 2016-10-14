@@ -119,7 +119,7 @@ gulp.task("build:app:src:ts", () => {
 });
 
 gulp.task("watch:app:src:ts", () => {
-    gulp.watch(config.files.js, ["build:app:src:ts"]);
+    gulp.watch(config.files.ts, ["build:app:src:ts"]);
 });
 
 /*
