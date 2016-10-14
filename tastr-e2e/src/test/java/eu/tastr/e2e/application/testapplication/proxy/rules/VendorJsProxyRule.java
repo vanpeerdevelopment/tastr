@@ -14,6 +14,6 @@ public class VendorJsProxyRule extends FileSystemProxyRule {
 
     @Override
     protected String fileName(String uri) {
-        return "vendor/js" + uri.substring(uri.lastIndexOf("/"));
+        return uri.substring(1);
     }
 }
