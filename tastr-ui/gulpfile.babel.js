@@ -44,12 +44,14 @@ gulp.task("watch:app", ["watch:app:src"]);
 gulp.task("build:app:src", ["build:app:src:index", "build:app:src:systemjsconfig", "build:app:src:ts", "build:app:src:img"]);
 gulp.task("watch:app:src", ["watch:app:src:index", "watch:app:src:systemjsconfig", "watch:app:src:ts", "watch:app:src:img"]);
 
-gulp.task("build:vendor", ["build:vendor:js"]);
-gulp.task("watch:vendor", ["watch:vendor:js"]);
-gulp.task("build:vendor:js", ["build:vendor:js:npm", "build:vendor:js:npm:folder"]);
-gulp.task("watch:vendor:js", ["watch:vendor:js:npm", "watch:vendor:js:npm:folder"]);
+gulp.task("build:vendor", ["build:vendor:js", "build:vendor:css", "build:vendor:fonts"]);
+gulp.task("watch:vendor", ["watch:vendor:js", "watch:vendor:css", "watch:vendor:fonts"]);
+gulp.task("build:vendor:js", ["build:vendor:js:npm", "build:vendor:js:npm:folder", "build:vendor:js:bower"]);
+gulp.task("watch:vendor:js", ["watch:vendor:js:npm", "watch:vendor:js:npm:folder", "watch:vendor:js:bower"]);
 gulp.task("build:vendor:css", ["build:vendor:css:bower"]);
 gulp.task("watch:vendor:css", ["watch:vendor:css:bower"]);
+gulp.task("build:vendor:fonts", ["build:vendor:fonts:bower"]);
+gulp.task("watch:vendor:fonts", ["watch:vendor:fonts:bower"]);
 
 /*
  * general
@@ -234,4 +236,20 @@ gulp.task("build:vendor:css:bower", () => {
 
 gulp.task("watch:vendor:css:bower", () => {
     gulp.watch(config.files.bower, ["build:vendor:css:bower"]);
+});
+
+/*
+ * vendor:fonts:bower
+ */
+gulp.task("build:vendor:fonts:bower", () => {
+    return gulp
+        .src(mainBowerFiles({
+            checkExistence: true,
+            filter: "**/fonts/*"
+        }))
+        .pipe(gulp.dest(config.dirs.distSrcVendorFonts));
+});
+
+gulp.task("watch:vendor:fonts:bower", () => {
+    gulp.watch(config.files.bower, ["build:vendor:fonts:bower"]);
 });

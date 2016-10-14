@@ -7,7 +7,9 @@ export let dirs = {
     distSrcApp: "target/dist/src/app",
     distSrcImg: "target/dist/src/content/images",
     distSrcVendorJs: "target/dist/src/vendor/js",
-    distSrcVendorCss: "target/dist/src/vendor/css"
+    distSrcVendorCss: "target/dist/src/vendor/css",
+    distSrcVendorFonts: "target/dist/src/vendor/fonts",
+    distSrcVendorFonts: "target/dist/src/vendor/fonts"
 };
 
 export let files = {
